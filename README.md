@@ -21,6 +21,6 @@ The way you'll do this at work is by exporting images directly from Figma — we
 Good luck and have fun!
 
 
-## Live View 
+### Live View 
 
 If you would like to see the project in live view please click on this link. https://itzlarz31.github.io/se_project_aroundtheus/
