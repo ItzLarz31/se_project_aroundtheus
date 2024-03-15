@@ -47,4 +47,9 @@
   width: 21px;
   height: 18px;
   border: none;
+  transform: opacity 0.3s ease-in-out;
+}
+
+.card__like-button:hover {
+  opacity: 50%;
 }
