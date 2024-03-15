@@ -1,8 +1,4 @@
-.cards {
-  /* fonts */
-}
-
-.card__list {
+.cards__list {
   margin: 51px 0 0;
   display: grid;
   list-style-type: none;
