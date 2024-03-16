@@ -9,9 +9,20 @@
   margin: 64px auto 60px;
 }
 
+.footer__description {
+  margin: 0;
+  padding: 0;
+}
+
 @media screen and (max-width:636px) {
   .footer {
     font-size: 14px;
     line-height: 17px;
+  }
+}
+
+@media screen and (max-width:480px) {
+  .footer__description {
+    margin-left: 19px;
   }
 }
