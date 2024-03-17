@@ -23,7 +23,3 @@ Good luck and have fun!
 ### Live View
 
 If you would like to see the project in live view please click on this link. https://itzlarz31.github.io/se_project_aroundtheus/
-
-### Video Guide
-
-This is the link to the video guide for seeing how I setup my project. https://drive.google.com/file/d/1l5T9sOYl8WpJszYsatwuYlWLhtprSF16/view?usp=sharing
