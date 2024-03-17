@@ -7,3 +7,10 @@
   grid-gap: 20px 17px;
   padding: 0;
 }
+
+
+@media screen and (max-width:480px) {
+  .cards__list {
+    margin-top: 36px;
+  }
+}
