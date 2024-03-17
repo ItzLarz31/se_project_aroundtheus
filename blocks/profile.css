@@ -29,6 +29,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  max-width: 375px;
 }
 
 .profile__edit-button {
@@ -82,6 +83,11 @@
 
   .profile__title {
     font-size: 32px;
+    max-width: 300px;
+  }
+
+  .profile__description {
+    max-width: 300px;
   }
 
   .profile__edit-button {
@@ -119,7 +125,7 @@
     line-height: 27px;
     text-align: center;
     margin-top: 30px;
-    max-width: 375px;
+    max-width: 196px;
   }
 
   .profile__description {
@@ -129,7 +135,7 @@
     font-size: 14px;
     line-height: 17px;
     text-align: center;
-    max-width: 375px;
+    max-width: 196px;
 
   }
 
