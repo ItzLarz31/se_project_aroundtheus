@@ -33,8 +33,8 @@ const initialCards = [
 const content = document.querySelector(".content");
 const editButton = content.querySelector(".profile__edit-button");
 const modal = document.querySelector(".modal");
-const closeButton = modal.querySelector(".modal__button_type_close");
-// const saveButton = modal.querySelector(".modal__button_type_save");
+const closeButton = modal.querySelector(".modal__close");
+// const saveButton = modal.querySelector(".modal__save");
 
 function editButtonClicked() {
   modal.classList.add("modal_opened");

@@ -24,7 +24,7 @@
   max-width: 430px;
 }
 
-.modal__button_close {
+.modal__close {
   background-image: url(../images/close-icon.svg);
   border: none;
   background-color: transparent;
@@ -63,7 +63,7 @@
   padding-bottom: 12px;
 }
 
-.modal__button_save {
+.modal__save {
   margin-top: 48px;
   width: 100%;
   height: 50px;
