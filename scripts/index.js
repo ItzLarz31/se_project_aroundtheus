@@ -51,17 +51,17 @@ const cardTemplate =
 /*                                  Functions                                 */
 /* -------------------------------------------------------------------------- */
 
-function editButtonClicked() {
+function openModal() {
   modal.classList.add("modal_opened");
   modalName.value = profileTitle.textContent;
   modalDescription.value = profileDescription.textContent;
 }
 
-function closeButtonClicked() {
+function closeModal() {
   modal.classList.remove("modal_opened");
 }
 
-function saveButtonClicked(evt) {
+function saveModalInput(evt) {
   evt.preventDefault();
   profileTitle.textContent = modalName.value;
   profileDescription.textContent = modalDescription.value;
@@ -83,9 +83,9 @@ function getCardElement(cardData) {
 /*                               Event Listeners                               */
 /* -------------------------------------------------------------------------- */
 
-editButton.addEventListener("click", editButtonClicked);
-closeButton.addEventListener("click", closeButtonClicked);
-modalForm.addEventListener("submit", saveButtonClicked);
+editButton.addEventListener("click", openModal);
+closeButton.addEventListener("click", closeModal);
+modalForm.addEventListener("submit", saveModalInput);
 
 /* -------------------------------------------------------------------------- */
 /*                                  For Loops                                  */

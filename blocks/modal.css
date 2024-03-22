@@ -36,6 +36,7 @@
   top: -45px;
   right: -45px;
   cursor: pointer;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .modal__close:hover {
@@ -82,8 +83,13 @@
   height: 50px;
   background-color: black;
   color: #fff;
-  bottom: auto;
   cursor: pointer;
+  border: none;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21.78px;
+  border-radius: 2px;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .modal__save:hover {

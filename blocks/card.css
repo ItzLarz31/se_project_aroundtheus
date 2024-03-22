@@ -19,7 +19,6 @@
   justify-content: space-between;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
-
 }
 
 .card__title {
@@ -39,7 +38,7 @@
   width: 21px;
   height: 18px;
   border: none;
-  transform: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .card__like-button:hover {
@@ -47,8 +46,7 @@
   cursor: pointer;
 }
 
-
-@media screen and (max-width:636px) {
+@media screen and (max-width: 636px) {
   .card__list {
     margin: 36px 0 0;
   }
