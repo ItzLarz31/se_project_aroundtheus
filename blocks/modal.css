@@ -60,7 +60,11 @@
 .modal__input {
   border: none;
   border-bottom: 1px solid rgb(84 84 84 / 0.7);
+  padding-top: 8px;
   padding-bottom: 12px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.94px;
 }
 
 .modal__save {
@@ -70,6 +74,7 @@
   background-color: black;
   color: #fff;
   bottom: auto;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 636px) {
