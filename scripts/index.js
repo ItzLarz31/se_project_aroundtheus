@@ -39,10 +39,10 @@ const editButton = content.querySelector(".profile__edit-button");
 const profileTitle = content.querySelector(".profile__title");
 const profileDescription = content.querySelector(".profile__description");
 const modal = document.querySelector(".modal");
+const modalForm = modal.querySelector(".modal__form");
 const closeButton = modal.querySelector(".modal__close");
-const modalName = modal.querySelector(".modal__input_name");
-const modalDescription = modal.querySelector(".modal__input_description");
-const saveButton = modal.querySelector(".modal__save");
+const modalName = modal.querySelector("#profile-title-input");
+const modalDescription = modal.querySelector("#profile-description-input");
 const cardListEl = document.querySelector(".cards__list");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
@@ -85,10 +85,10 @@ function getCardElement(cardData) {
 
 editButton.addEventListener("click", editButtonClicked);
 closeButton.addEventListener("click", closeButtonClicked);
-saveButton.addEventListener("submit", saveButtonClicked);
+modalForm.addEventListener("submit", saveButtonClicked);
 
 /* -------------------------------------------------------------------------- */
-/*                                  For Each                                  */
+/*                                  For Loops                                  */
 /* -------------------------------------------------------------------------- */
 
 initialCards.forEach((cardData) => {
