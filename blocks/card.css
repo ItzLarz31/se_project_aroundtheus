@@ -50,6 +50,22 @@
   cursor: pointer;
 }
 
+.card__delete-button {
+  background: transparent url(../images/trash.svg) center no-repeat;
+  width: 18px;
+  height: 19px;
+  border: none;
+  transition: opacity 0.3s ease-in-out;
+  position: relative;
+  top: 35px;
+  left: 250px;
+}
+
+.card__delete-button:hover {
+  opacity: 50%;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 636px) {
   .card__list {
     margin: 36px 0 0;

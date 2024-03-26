@@ -50,7 +50,7 @@ const profileModalDescription = profileEditModal.querySelector(
   "#profile-description-input"
 );
 
-// Card List
+// Cards
 const cardListEl = document.querySelector(".cards__list");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
@@ -62,6 +62,12 @@ const cardCloseButton = cardModal.querySelector(".modal__close");
 const cardModalTitle = cardModal.querySelector("#card-title-input");
 const cardModalUrl = cardModal.querySelector("#card-url-input");
 const cardAddButton = document.querySelector(".profile__add-button");
+
+// Preview Image Modal
+const previewImageModal = document.querySelector("#image-modal");
+const imageEl = previewImageModal.querySelector(".modal__image");
+const imageName = previewImageModal.querySelector(".modal__image-name");
+const imageCloseButton = previewImageModal.querySelector(".modal__close");
 
 /* -------------------------------------------------------------------------- */
 /*                                  Functions                                 */
@@ -95,17 +101,25 @@ function saveCardModalInput(evt) {
   closeModal(cardModal);
 }
 
-// function saveCardModalInput(evt) {
-//   evt.preventDefault();
-//   profileTitle.textContent = profileModalName.value;
-//   profileDescription.textContent = profileModalDescription.value;
-//   closeCardModal();
-// }
-
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardImageEl = cardElement.querySelector(".card__image");
   const cardTitleEl = cardElement.querySelector(".card__title");
+  const likeButton = cardElement.querySelector(".card__like-button");
+  const cardDeleteButton = cardElement.querySelector(".card__delete-button");
+  cardDeleteButton.addEventListener("click", () => {
+    cardElement.remove();
+  });
+
+  cardImageEl.addEventListener("click", () => {
+    openModal(previewImageModal);
+    imageEl.src = cardImageEl.src;
+    imageName.textContent = cardTitleEl.textContent;
+  });
+
+  likeButton.addEventListener("click", () => {
+    likeButton.classList.toggle("card__like-button_active");
+  });
 
   cardTitleEl.textContent = cardData.name;
   cardImageEl.src = cardData.link;
@@ -133,6 +147,9 @@ cardAddButton.addEventListener("click", () => openModal(cardModal));
 cardCloseButton.addEventListener("click", () => closeModal(cardModal));
 cardEditForm.addEventListener("submit", saveCardModalInput);
 
+// Image Modal
+imageCloseButton.addEventListener("click", () => closeModal(previewImageModal));
+
 /* -------------------------------------------------------------------------- */
 /*                                  For Loops                                  */
 /* -------------------------------------------------------------------------- */
@@ -140,12 +157,4 @@ cardEditForm.addEventListener("submit", saveCardModalInput);
 initialCards.forEach((cardData) => {
   const cardElement = getCardElement(cardData);
   cardListEl.append(cardElement);
-});
-
-const likeButtons = document.querySelectorAll(".card__like-button");
-
-likeButtons.forEach((likeButton) => {
-  likeButton.addEventListener("click", () => {
-    likeButton.classList.toggle("card__like-button_active");
-  });
 });

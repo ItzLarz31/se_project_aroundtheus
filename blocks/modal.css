@@ -95,6 +95,25 @@
   opacity: 80%;
 }
 
+.modal__image {
+  background-color: transparent;
+  height: 540px;
+  width: 433;
+}
+
+.modal__container-image {
+  margin: auto;
+  position: relative;
+}
+
+.modal__image-name {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14.52px;
+  text-align: left;
+  margin: 8px auto 0;
+}
+
 @media screen and (max-width: 636px) {
   .modal__container {
     max-width: 282px;
@@ -120,5 +139,10 @@
   .modal__save {
     font-size: 14px;
     line-height: 16.94px;
+  }
+
+  .modal__image {
+    max-width: 240px;
+    max-height: 299px;
   }
 }
