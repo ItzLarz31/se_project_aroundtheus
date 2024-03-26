@@ -67,7 +67,7 @@ const cardAddButton = document.querySelector(".profile__add-button");
 const previewImageModal = document.querySelector("#image-modal");
 const imageEl = previewImageModal.querySelector(".modal__image");
 const imageName = previewImageModal.querySelector(".modal__image-name");
-const imageCloseButton = previewImageModal.querySelector(".modal__close");
+const imageCloseButton = previewImageModal.querySelector(".modal__close-image");
 
 /* -------------------------------------------------------------------------- */
 /*                                  Functions                                 */
