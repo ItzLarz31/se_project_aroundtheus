@@ -9,10 +9,13 @@
   padding: 0 19px;
   display: flex;
   visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.3s linear, opacity 0.5s linear;
 }
 
 .modal_opened {
   visibility: visible;
+  opacity: 1;
 }
 
 .modal__container {
@@ -97,8 +100,8 @@
 
 .modal__image {
   background-color: transparent;
-  height: 540px;
-  width: 433;
+  max-width: 75vw;
+  max-height: 75vh;
 }
 
 .modal__container-image {
@@ -160,15 +163,15 @@
     line-height: 16.94px;
   }
 
-  .modal__image {
+  /* .modal__image {
     max-width: 240px;
     max-height: 299px;
-  }
+  } */
 
   .modal__close-image {
     width: 30px;
     height: 30px;
-    top: -34px;
-    right: -34px;
+    top: -32px;
+    right: -32px;
   }
 }
