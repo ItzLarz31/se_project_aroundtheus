@@ -45,10 +45,17 @@ const profileModalName = profileEditModal.querySelector("#profile-title-input");
 const profileModalDescription = profileEditModal.querySelector(
   "#profile-description-input"
 );
+
 const cardListEl = document.querySelector(".cards__list");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
+
 const cardModal = document.querySelector("#card-modal");
+const cardEditForm = cardModal.querySelector(".modal__form");
+const cardCloseButton = cardModal.querySelector(".modal__close");
+const cardModalTitle = cardModal.querySelector("#card-title-input");
+const cardModalUrl = cardModal.querySelector("#card-url-input");
+const cardAddButton = document.querySelector(".profile__add-button");
 
 /* -------------------------------------------------------------------------- */
 /*                                  Functions                                 */
@@ -71,6 +78,23 @@ function saveProfileModalInput(evt) {
   closeProfileModal();
 }
 
+function openCardModal() {
+  cardModal.classList.add("modal_opened");
+  cardModalTitle.value = profileTitle.textContent;
+  cardModalUrl.value = profileDescription.textContent;
+}
+
+function closeCardModal() {
+  cardModal.classList.remove("modal_opened");
+}
+
+function saveCardModalInput(evt) {
+  evt.preventDefault();
+  profileTitle.textContent = profileModalName.value;
+  profileDescription.textContent = profileModalDescription.value;
+  closeCardModal();
+}
+
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardImageEl = cardElement.querySelector(".card__image");
@@ -89,6 +113,10 @@ function getCardElement(cardData) {
 profileEditButton.addEventListener("click", openProfileModal);
 profileCloseButton.addEventListener("click", closeProfileModal);
 profileEditForm.addEventListener("submit", saveProfileModalInput);
+
+cardAddButton.addEventListener("click", openCardModal);
+cardCloseButton.addEventListener("click", closeCardModal);
+cardEditForm.addEventListener("submit", saveCardModalInput);
 
 /* -------------------------------------------------------------------------- */
 /*                                  For Loops                                  */
