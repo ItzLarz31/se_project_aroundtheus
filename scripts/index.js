@@ -107,6 +107,7 @@ function getCardElement(cardData) {
   const cardTitleEl = cardElement.querySelector(".card__title");
   const likeButton = cardElement.querySelector(".card__like-button");
   const cardDeleteButton = cardElement.querySelector(".card__delete-button");
+
   cardDeleteButton.addEventListener("click", () => {
     cardElement.remove();
   });
@@ -114,6 +115,7 @@ function getCardElement(cardData) {
   cardImageEl.addEventListener("click", () => {
     openModal(previewImageModal);
     imageEl.src = cardImageEl.src;
+    imageEl.alt = cardTitleEl.textContent;
     imageName.textContent = cardTitleEl.textContent;
   });
 
