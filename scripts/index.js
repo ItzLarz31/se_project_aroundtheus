@@ -162,9 +162,6 @@ profileEditForm.addEventListener("submit", handleProfileFormSubmit);
 cardAddButton.addEventListener("click", () => openModal(cardModal));
 cardEditForm.addEventListener("submit", handleCardFormSubmit);
 
-// Image Modal
-imageCloseButton.addEventListener("click", () => closeModal(previewImageModal));
-
 /* -------------------------------------------------------------------------- */
 /*                                  For Loops                                  */
 /* -------------------------------------------------------------------------- */
