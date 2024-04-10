@@ -75,10 +75,14 @@ const imageCloseButton = previewImageModal.querySelector(".modal__close-image");
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
+  document.addEventListener("keydown", closeModalEscape);
+  modal.addEventListener("click", closeModalOverlay);
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
+  document.removeEventListener("keydown", closeModalEscape);
+  modal.removeEventListener("click", closeModalOverlay);
 }
 
 function saveProfileModalInput(evt) {
@@ -127,6 +131,19 @@ function getCardElement(cardData) {
   cardImageEl.src = cardData.link;
   cardImageEl.alt = cardData.name;
   return cardElement;
+}
+
+function closeModalOverlay(evt) {
+  if (evt.target === evt.currentTarget) {
+    closeModal(evt.currentTarget);
+  }
+}
+
+function closeModalEscape(evt) {
+  if (evt.key === "Escape") {
+    const openedModal = document.querySelector(".modal_opened");
+    closeModal(openedModal);
+  }
 }
 
 /* -------------------------------------------------------------------------- */

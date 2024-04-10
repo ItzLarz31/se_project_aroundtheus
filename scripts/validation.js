@@ -50,9 +50,15 @@ function hasInvalidInput(inputList) {
   return !inputList.every((inputElements) => inputElements.validity.valid);
 }
 
-function disableButton() {}
+function disableButton(submitButton, { inactiveButtonClass }) {
+  submitButton.classList.add(inactiveButtonClass);
+  submitButton.disabled = true;
+}
 
-function enableButton() {}
+function enableButton(submitButton, { inactiveButtonClass }) {
+  submitButton.classList.remove(inactiveButtonClass);
+  submitButton.disabled = false;
+}
 
 function toggleButtonState(
   inputElements,
@@ -60,12 +66,10 @@ function toggleButtonState(
   { inactiveButtonClass }
 ) {
   if (hasInvalidInput(inputElements)) {
-    submitButton.classList.add(inactiveButtonClass);
-    submitButton.disabled = true;
-    return;
+    disableButton(submitButton, { inactiveButtonClass });
+  } else {
+    enableButton(submitButton, { inactiveButtonClass });
   }
-  submitButton.classList.remove(inactiveButtonClass);
-  submitButton.disabled = false;
 }
 
 function setEventListeners(formElements, config) {
@@ -87,18 +91,6 @@ function enableValidation(config) {
       evt.preventDefault();
     });
     setEventListeners(formElements, config);
-    // look for all inputs inside of form
-    // loop through all the inputs to see if all are valid
-    //
-    // if input is not valid
-    // grab validation message
-    // add error class to input
-    // display error message
-    // disable save button
-    //
-    // if all inputs are valid
-    //enable button
-    //reset error messages
   });
 }
 

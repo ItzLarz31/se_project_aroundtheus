@@ -103,6 +103,7 @@
   border: 1px;
   border-style: solid;
   opacity: 30%;
+  cursor: default;
 }
 
 .modal__input_type_error {
