@@ -1,5 +1,6 @@
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
+import PopupWithForm from "../components/PopupWithForm.js";
 
 const cardData = [
   {
@@ -76,6 +77,7 @@ const cardEditForm = cardModal.querySelector(".modal__form");
 const cardModalTitle = cardModal.querySelector("#card-title-input");
 const cardModalUrl = cardModal.querySelector("#card-url-input");
 const cardAddButton = document.querySelector(".profile__add-button");
+const newCardPopup = new PopupWithForm("#card-modal", () => {});
 
 // Preview Image Modal
 const previewImageModal = document.querySelector("#image-modal");
@@ -102,17 +104,17 @@ function handleImageClick(name, link) {
   imageEl.src = link;
 }
 
-function openModal(modal) {
-  modal.classList.add("modal_opened");
-  document.addEventListener("keydown", closeModalEscape);
-  modal.addEventListener("click", closeModalOverlay);
-}
+// function openModal(modal) {
+//   modal.classList.add("modal_opened");
+//   document.addEventListener("keydown", closeModalEscape);
+//   modal.addEventListener("click", closeModalOverlay);
+// }
 
-function closeModal(modal) {
-  modal.classList.remove("modal_opened");
-  document.removeEventListener("keydown", closeModalEscape);
-  modal.removeEventListener("click", closeModalOverlay);
-}
+// function closeModal(modal) {
+//   modal.classList.remove("modal_opened");
+//   document.removeEventListener("keydown", closeModalEscape);
+//   modal.removeEventListener("click", closeModalOverlay);
+// }
 
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
