@@ -4,7 +4,8 @@ import PopupWithForm from "../components/PopupWithForm.js";
 import PopUpImage from "../components/PopupWithImage.js";
 import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
-
+import "../pages/index.css";
+import profileSrc from "../images/jacques-cousteau.jpg";
 const cardData = [
   {
     name: "Yosemite Valley",
@@ -114,6 +115,8 @@ const userInfo = new UserInfo({
 
 const userData = userInfo.getUserInfo();
 
+const profileImage = document.getElementById("profile-image");
+profileImage.src = profileSrc;
 /* -------------------------------------------------------------------------- */
 /*                                  Functions                                 */
 /* -------------------------------------------------------------------------- */
