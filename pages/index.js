@@ -112,6 +112,8 @@ const userInfo = new UserInfo({
   jobSelector: ".profile__description",
 });
 
+const userData = userInfo.getUserInfo();
+
 /* -------------------------------------------------------------------------- */
 /*                                  Functions                                 */
 /* -------------------------------------------------------------------------- */
@@ -156,6 +158,8 @@ function handleCardFormSubmit() {
 // Profile Edit Button
 profileEditButton.addEventListener("click", () => {
   newProfilePopup.open();
+  profileModalName.value = userData.name;
+  profileModalDescription.value = userData.description;
 });
 
 // Card Add Button
