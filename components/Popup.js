@@ -5,20 +5,33 @@ export default class Popup {
 
   open() {
     this._popupElement.classList.add("modal_opened");
-    this._popupElement.addEventListener("keydown", closeModalEscape);
-    this._popupElement.addEventListener("click", closeModalOverlay);
+    document.addEventListener("keydown", (evt) => this._handleEscClose(evt));
   }
 
   close() {
-    //closes popup
     this._popupElement.classList.remove("modal_opened");
-    this._popupElement.removeEventListener("keydown", closeModalEscape);
-    this._popupElement.removeEventListener("click", closeModalOverlay);
+    this._popupElement.removeEventListener("keydown", (evt) =>
+      this._handleEscClose(evt)
+    );
   }
 
-  _handleEscClose() {}
+  _handleEscClose(evt) {
+    if (evt.key === "Escape") {
+      this.close();
+    }
+  }
 
-  seteventListeners() {
-    //sets event listeners
+  setEventListeners() {
+    this._popupElement.addEventListener("click", () => {
+      this.open();
+    });
+    this._popupElement.addEventListener("click", (evt) => {
+      if (
+        evt.target.classList.contains("modal") ||
+        evt.target.classList.contains("modal__close")
+      ) {
+        this.close();
+      }
+    });
   }
 }
