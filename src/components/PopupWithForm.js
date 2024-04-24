@@ -16,6 +16,10 @@ export default class PopupWithForm extends Popup {
     return inputValues;
   }
 
+  sendInputValues() {
+    return this._getInputValues();
+  }
+
   setEventListeners() {
     super.setEventListeners();
     this._popupForm.addEventListener("submit", (evt) => {
@@ -25,12 +29,7 @@ export default class PopupWithForm extends Popup {
     });
   }
 
-  open() {
-    super.open();
-  }
-
-  close() {
+  reset() {
     this._popupForm.reset();
-    super.close();
   }
 }
