@@ -1,7 +1,7 @@
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
 import PopupWithForm from "../components/PopupWithForm.js";
-import PopUpImage from "../components/PopupWithImage.js";
+import PopupWithImage from "../components/PopupWithImage.js";
 import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
 import "../pages/index.css";
@@ -46,7 +46,7 @@ editProfileFormValidator.enableValidation();
 const newCardPopup = new PopupWithForm("#card-modal", handleCardFormSubmit);
 newCardPopup.setEventListeners();
 
-const newImagePopup = new PopUpImage("#image-modal");
+const newImagePopup = new PopupWithImage("#image-modal");
 newImagePopup.setEventListeners();
 
 const newProfilePopup = new PopupWithForm(
@@ -89,16 +89,12 @@ cardSection.renderItems();
 function handleProfileFormSubmit({ name, description }) {
   userInfo.setUserInfo({ name, description });
   newProfilePopup.close();
-  newProfilePopup.reset();
 }
 
-function handleCardFormSubmit() {
-  const name = newCardPopup.sendInputValues().title;
-  const link = newCardPopup.sendInputValues().url;
-  renderCard({ name, link }, cardsWrap);
-  newCardPopup.close();
+function handleCardFormSubmit({ title, url }) {
+  renderCard({ name: title, link: url }, cardsWrap);
   addCardFormValidator.resetValidation();
-  newCardPopup.reset();
+  newCardPopup.close();
 }
 
 /* -------------------------------------------------------------------------- */
@@ -108,11 +104,9 @@ function handleCardFormSubmit() {
 // Profile Edit Button
 profileEditButton.addEventListener("click", () => {
   newProfilePopup.open();
-  profileModalName.value =
-    document.querySelector(".profile__title").textContent;
-  profileModalDescription.value = document.querySelector(
-    ".profile__description"
-  ).textContent;
+  const { name, description } = userInfo.getUserInfo();
+  profileModalName.value = name;
+  profileModalDescription.value = description;
 });
 
 // Card Add Button
