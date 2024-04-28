@@ -51,3 +51,13 @@ export default class Card {
     return this._cardElement;
   }
 }
+
+fetch("https://around-api.en.tripleten-services.com/v1/cards", {
+  headers: {
+    authorization: "f280bef9-8cb1-42f0-967f-b248aa62ce9e",
+  },
+})
+  .then((res) => res.json())
+  .then((result) => {
+    console.log(result);
+  });
