@@ -5,7 +5,6 @@ export default class PopupWithConfirm extends Popup {
     super({ popupSelector });
     this._submitButton = this._popupElement.querySelector(".modal__save");
     this._handleSubmitCallback = null;
-    this._cardId = null;
   }
 
   setSubmitAction(callback) {

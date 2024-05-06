@@ -177,24 +177,42 @@ function handleLikeClick(card) {
 }
 
 function handleProfileFormSubmit({ name, description }) {
-  api.updateProfileInfo({ title: name, description }).then(() => {
-    userInfo.setUserInfo({ name, description });
-  });
+  newProfilePopup.renderSaving(true);
+  api
+    .updateProfileInfo({ title: name, description })
+    .then(() => {
+      userInfo.setUserInfo({ name, description });
+    })
+    .finally(() => {
+      newProfilePopup.renderSaving(false);
+    });
 }
 
 function handleCardFormSubmit({ title, url }) {
-  api.addCard({ name: title, link: url }).then((newCardData) => {
-    renderCard(newCardData);
-    addCardFormValidator.resetValidation();
-    newCardPopup.close();
-  });
+  newCardPopup.renderSaving(true);
+  api
+    .addCard({ name: title, link: url })
+    .then((newCardData) => {
+      renderCard(newCardData);
+      addCardFormValidator.resetValidation();
+      newCardPopup.close();
+    })
+    .finally(() => {
+      newCardPopup.renderSaving(false);
+    });
 }
 
 function handleAvatarFormSubmit(data) {
+  newAvatarPopup.renderSaving(true);
   const url = data.url;
-  api.updateAvatar({ avatar: url }).then(() => {
-    userInfo.setAvatarImage({ avatar: url });
-  });
+  api
+    .updateAvatar({ avatar: url })
+    .then(() => {
+      userInfo.setAvatarImage({ avatar: url });
+    })
+    .finally(() => {
+      newAvatarPopup.renderSaving(false);
+    });
 }
 
 /* -------------------------------------------------------------------------- */
