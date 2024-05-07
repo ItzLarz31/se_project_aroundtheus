@@ -151,7 +151,6 @@ function renderCard(cardData) {
   );
   const cardElement = card.getView();
   cardListEl.prepend(cardElement);
-  console.log(cardData);
 }
 
 function handleDeleteClick(card) {
@@ -182,6 +181,12 @@ function handleProfileFormSubmit({ name, description }) {
     .updateProfileInfo({ title: name, description })
     .then(() => {
       userInfo.setUserInfo({ name, description });
+      editProfileFormValidator.disableButton();
+      editProfileFormValidator.resetValidation();
+      newProfilePopup.close();
+    })
+    .catch((error) => {
+      console.error("Error updating profile:", error);
     })
     .finally(() => {
       newProfilePopup.renderSaving(false);
@@ -196,6 +201,11 @@ function handleCardFormSubmit({ title, url }) {
       renderCard(newCardData);
       addCardFormValidator.resetValidation();
       newCardPopup.close();
+      newCardPopup.reset();
+      addCardFormValidator.disableButton();
+    })
+    .catch((error) => {
+      console.error("Error adding card:", error);
     })
     .finally(() => {
       newCardPopup.renderSaving(false);
@@ -209,6 +219,13 @@ function handleAvatarFormSubmit(data) {
     .updateAvatar({ avatar: url })
     .then(() => {
       userInfo.setAvatarImage({ avatar: url });
+      editAvatarFormValidator.disableButton();
+      editAvatarFormValidator.resetValidation();
+      newAvatarPopup.close();
+      newAvatarPopup.reset();
+    })
+    .catch((error) => {
+      console.error("Error updating avatar:", error);
     })
     .finally(() => {
       newAvatarPopup.renderSaving(false);
