@@ -176,59 +176,59 @@ function handleLikeClick(card) {
 }
 
 function handleProfileFormSubmit({ name, description }) {
-  newProfilePopup.renderSaving(true);
+  newProfilePopup.renderLoading(true);
   api
     .updateProfileInfo({ title: name, description })
     .then(() => {
       userInfo.setUserInfo({ name, description });
       editProfileFormValidator.disableButton();
-      editProfileFormValidator.resetValidation();
       newProfilePopup.close();
     })
     .catch((error) => {
       console.error("Error updating profile:", error);
+      editProfileFormValidator.resetValidation();
     })
     .finally(() => {
-      newProfilePopup.renderSaving(false);
+      newProfilePopup.renderLoading(false);
     });
 }
 
 function handleCardFormSubmit({ title, url }) {
-  newCardPopup.renderSaving(true);
+  newCardPopup.renderLoading(true);
   api
     .addCard({ name: title, link: url })
     .then((newCardData) => {
       renderCard(newCardData);
-      addCardFormValidator.resetValidation();
       newCardPopup.close();
       newCardPopup.reset();
       addCardFormValidator.disableButton();
     })
     .catch((error) => {
       console.error("Error adding card:", error);
+      addCardFormValidator.resetValidation();
     })
     .finally(() => {
-      newCardPopup.renderSaving(false);
+      newCardPopup.renderLoading(false);
     });
 }
 
 function handleAvatarFormSubmit(data) {
-  newAvatarPopup.renderSaving(true);
+  newAvatarPopup.renderLoading(true);
   const url = data.url;
   api
     .updateAvatar({ avatar: url })
     .then(() => {
       userInfo.setAvatarImage({ avatar: url });
       editAvatarFormValidator.disableButton();
-      editAvatarFormValidator.resetValidation();
       newAvatarPopup.close();
       newAvatarPopup.reset();
     })
     .catch((error) => {
       console.error("Error updating avatar:", error);
+      editAvatarFormValidator.resetValidation();
     })
     .finally(() => {
-      newAvatarPopup.renderSaving(false);
+      newAvatarPopup.renderLoading(false);
     });
 }
 
