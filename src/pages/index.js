@@ -150,7 +150,7 @@ function renderCard(cardData) {
     handleLikeClick
   );
   const cardElement = card.getView();
-  cardListEl.prepend(cardElement);
+  cardSection.addItem(cardElement);
 }
 
 function handleDeleteClick(card) {
