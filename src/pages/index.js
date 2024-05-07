@@ -156,22 +156,37 @@ function renderCard(cardData) {
 function handleDeleteClick(card) {
   newPopupConfirm.open();
   newPopupConfirm.setSubmitAction(() => {
-    api.deleteCard(card.id).then(() => {
-      card.deleteCard();
-      newPopupConfirm.close();
-    });
+    api
+      .deleteCard(card.id)
+      .then(() => {
+        card.deleteCard();
+        newPopupConfirm.close();
+      })
+      .catch((err) => {
+        console.error("Error deleting card", err);
+      });
   });
 }
 
 function handleLikeClick(card) {
   if (!card.isLiked) {
-    api.likeCard(card.id).then(() => {
-      card.updateLikes(true);
-    });
+    api
+      .likeCard(card.id)
+      .then(() => {
+        card.updateLikes(true);
+      })
+      .catch((err) => {
+        console.error("Error liking card", err);
+      });
   } else {
-    api.dislikeCard(card.id).then(() => {
-      card.updateLikes(false);
-    });
+    api
+      .dislikeCard(card.id)
+      .then(() => {
+        card.updateLikes(false);
+      })
+      .catch((err) => {
+        console.error("Error disliking card", err);
+      });
   }
 }
 
@@ -186,7 +201,6 @@ function handleProfileFormSubmit({ name, description }) {
     })
     .catch((error) => {
       console.error("Error updating profile:", error);
-      editProfileFormValidator.resetValidation();
     })
     .finally(() => {
       newProfilePopup.renderLoading(false);
@@ -205,7 +219,6 @@ function handleCardFormSubmit({ title, url }) {
     })
     .catch((error) => {
       console.error("Error adding card:", error);
-      addCardFormValidator.resetValidation();
     })
     .finally(() => {
       newCardPopup.renderLoading(false);
@@ -225,7 +238,6 @@ function handleAvatarFormSubmit(data) {
     })
     .catch((error) => {
       console.error("Error updating avatar:", error);
-      editAvatarFormValidator.resetValidation();
     })
     .finally(() => {
       newAvatarPopup.renderLoading(false);
@@ -239,19 +251,25 @@ function handleAvatarFormSubmit(data) {
 // Profile Edit Button
 profileEditButton.addEventListener("click", () => {
   newProfilePopup.open();
+  editProfileFormValidator.resetValidation();
   const { name, description } = userInfo.getUserInfo();
   profileModalName.value = name;
   profileModalDescription.value = description;
 });
 
 // Card Add Button
-cardAddButton.addEventListener("click", () => newCardPopup.open());
+cardAddButton.addEventListener("click", () => {
+  newCardPopup.open();
+  addCardFormValidator.resetValidation();
+});
 
 // Avatar Edit Button
-avatarEditButton.addEventListener("click", () => newAvatarPopup.open());
+avatarEditButton.addEventListener("click", () => {
+  newAvatarPopup.open();
+  editAvatarFormValidator.resetValidation();
+});
 
 //Delete card button
 newPopupConfirm.setSubmitAction((cardId) => {
   handleDeleteConfirmation(cardId);
-  newPopupConfirm.close();
 });
