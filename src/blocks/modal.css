@@ -57,6 +57,11 @@
   max-width: 330px;
 }
 
+.modal__heading-confirm {
+  width: 358px;
+  margin-bottom: 0;
+}
+
 .modal__form {
   display: flex;
   flex-direction: column;
@@ -82,6 +87,14 @@
   margin-top: 30px;
 }
 
+.modal__input-avatar {
+  border: none;
+  border-bottom: 1px solid rgb(84 84 84 / 0.7);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.94px;
+}
+
 .modal__save {
   margin-top: 48px;
   width: 100%;
@@ -95,6 +108,10 @@
   line-height: 21.78px;
   border-radius: 2px;
   transition: opacity 0.3s ease-in-out;
+}
+
+.modal__save-confirm {
+  margin-top: 38px;
 }
 
 .modal__save_disabled {
@@ -170,6 +187,10 @@
   }
 
   .modal__form {
+    width: 238px;
+  }
+
+  .modal__heading-confirm {
     width: 238px;
   }
 

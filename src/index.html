@@ -17,7 +17,15 @@
       </header>
       <main class="content">
         <section class="profile page__section">
-          <img src="" id="profile-image" alt="Avatar" class="profile__avatar" />
+          <div class="profile__wrapper">
+            <img
+              src=""
+              id="profile-image"
+              alt="Avatar"
+              class="profile__avatar"
+            />
+            <button type="button" class="profile__edit-picture-button"></button>
+          </div>
           <div class="profile__info">
             <h1 class="profile__title">Jacques Cousteau</h1>
             <button type="button" class="profile__edit-button"></button>
@@ -70,6 +78,17 @@
       </div>
     </div>
 
+    <!-- Confirm Delete Modal -->
+    <div class="modal" id="confirm-modal">
+      <div class="modal__container">
+        <button type="button" class="modal__close"></button>
+        <h3 class="modal__heading modal__heading-confirm">Are you sure?</h3>
+        <button type="submit" class="modal__save modal__save-confirm">
+          Yes
+        </button>
+      </div>
+    </div>
+
     <!-- Add card modal -->
     <div class="modal" id="card-modal">
       <div class="modal__container">
@@ -102,6 +121,32 @@
             disabled
           >
             Create
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Change Profile Picture Modal -->
+    <div class="modal" id="profile-avatar-modal">
+      <div class="modal__container">
+        <button type="button" class="modal__close"></button>
+        <h3 class="modal__heading">Change profile picture</h3>
+        <form class="modal__form">
+          <input
+            type="url"
+            name="url"
+            id="profile-url-input"
+            placeholder="Image URL"
+            class="modal__input"
+            required
+          />
+          <span class="modal__error" id="profile-url-input-error"></span>
+          <button
+            type="submit"
+            class="modal__save modal__save_disabled"
+            disabled
+          >
+            Save
           </button>
         </form>
       </div>

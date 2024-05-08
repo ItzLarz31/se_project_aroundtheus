@@ -43,6 +43,7 @@ export default class FormValidator {
     const errorElement = this._formElement.querySelector(
       `#${inputElement.id}-error`
     );
+
     inputElement.classList.add(this._borderErrorClass);
     errorElement.textContent = inputElement.validationMessage;
     errorElement.classList.add(this._errorClass);
@@ -61,7 +62,7 @@ export default class FormValidator {
 
   _toggleButtonState(inputElements, submitButton) {
     if (this._hasInvalidInput(inputElements)) {
-      this._disableButton(submitButton);
+      this.disableButton(submitButton);
     } else {
       this._enableButton(submitButton);
     }
@@ -73,7 +74,7 @@ export default class FormValidator {
     );
   }
 
-  _disableButton() {
+  disableButton() {
     this._submitButton.classList.add(this._inactiveButtonClass);
     this._submitButton.disabled = true;
   }
@@ -86,7 +87,6 @@ export default class FormValidator {
   enableValidation() {
     this._formElement.addEventListener("submit", (evt) => {
       evt.preventDefault();
-      this._disableButton();
     });
     this._setEventListeners();
     this._toggleButtonState();
